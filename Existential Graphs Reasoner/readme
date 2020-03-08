@@ -1,0 +1,129 @@
+Nume: Alexandru Livadaru si Diana Ciocaianu
+Grupa: 313
+Seria: CA
+		
+		TEMA3-EXISTENTIAL GRAPHS REASONER
+
+!!!!!!!! AM MODIFICAT FISIERUL AEGRAPH.H!!!!!!!!
+
+	POSSIBLE_DOUBLE_CUTS
+
+-Cu for parcurgem fiecare subgraf al radacinii.
+
+-Verificam daca subgraful respectiv indeplineste conditiile de double cut.
+
+-Daca da,il bagam in matricea road.
+
+-Dupa,vom apela functia possible_double_cats recursiv
+
+-Rezultatul functiei il vom stoca in variabila r.
+
+-Daca conditiile din if nu sunt indeplinite,functia nu intoarce nimic.
+
+-Dar daca sa zicem ca indeplineste conditiile,va intoarce numarul muchiei(0 sau 1)
+
+-Si dupa fct recursiva nu va mai avea unde sa se duca si deci se va termina recursivitatea.
+
+-Si in drumul spre root,va adauga cu ajutorul lui v elemente la inceputul lui r.
+
+-De ex daca suntem pe 0,in timp ce se va duce in sus va adauga si 0 si 1 formand astfel ruta.
+
+-Asta nu se intampla mereu pentru ca daca conditiile nu sunt indeplinite,functia nu intoarce nimic.
+
+-Iar la final se va adauga tot r-ul la sfarsitul lui road formand astfel rezultatul final.
+
+	POSSIBLE_ERASURES
+
+-De data asta vom parcurge si subgrafurile si atomii.
+
+-Daca nivelul e impar (nivelul incepe de la -1) adaugam in road indicele i.
+
+-Prima conditie este pusa a.i. sa nu includem taietura care delimiteaza acel subgraf.
+
+-A doua conditie este pusa ca sa nu stergem un graf daca este singur in taietura.
+
+-A treia conditie este pusa pt ca recursivitatea sa se intample doar pe subgrafuri.
+
+-i-ul ar fi depasit numarul de subgrafuri.
+
+-Ar fi incercat sa acceseze  un subgraf cu indice invalid(seg fault).
+
+-In rest procesul e la fel ca la POSSIBLE_DOUBLE_CUTS
+
+	ERASE
+
+-Luam o variabila auxiliara care este egala cu graful curent.
+
+-Am facut asta din cauza lui "const" din definitia fct din schelet.
+
+	ERASE_HELPER
+
+-Daca nu ramane un singur indice in where retinem primul indice din where(index).
+
+-Apoi il scoatem din where.
+
+-Si apelam recursiv functia pentru a parcurg in jos graful.
+
+-Daca ramane un singur element,inseamna ca am ajuns in pozitia unde vom efectua erase.
+
+-Daca diferenta dintre nr de subgrafuri si indicele respectiv e mai mic ca 0
+
+-Rezulta ca nu mai sunt subgrafuri si suntem pe un atom.
+
+-Apoi stergem indicele respectiv din vectorul atoms.
+
+-Altfel,stergem indicele respectiv din vectorul de subgrafuri.
+
+	DEITERATE
+
+-E acelasi lucru ca la ERASE
+
+	DOUBLE_CUT
+
+-Luam o variabila auxiliara care este egala cu graful curent.
+
+-Am facut asta din cauza lui "const" din definitia fct din schelet.
+
+	DOUBLE_CUT_HELPER
+
+-Daca nu ramane un singur indice in where retinem primul indice din where(index).
+
+-Apoi il scoatem din where.
+
+-Si apelam recursiv functia pentru a parcurg in jos graful.
+
+-Daca ramane un singur element,inseamna ca am ajuns in pozitia unde vom efectua double_cut.
+
+-Luam o var aux pe care o pozitionam cu doua pozitii mai in fata fata de poz where[0].
+
+-Copiem toti atomii si toate subgrafurile pe care le are var aux si i le adaugam lui node.
+
+-Apoi stergem subgraful vechi si astfel se realizeaza double_cut.
+
+	POSSIBLE_DEITERATIONS
+
+-Variabila road ne va retine output-ul.
+
+-Parcurg fiecare subgraf si il cautam in celelalte subgrafuri.
+
+-Avem grija ca graful sa nu se gaseasca pe el insusi.
+
+-Retinem drumul pana la subgraful cautat in r(folosind fct get_paths_to din schelet).
+
+-Apoi adaugam restul de drum pana la root la inceputul vectorului v.
+
+-La sfarsit copiem drumul la sfarsitul vectorului de vectori.
+
+-Returnam road(outputul). 	
+
+Desi in realizarea temei am muncit amandoi la toate functiile,Diana s-a concentrat
+
+mai mult pe POS_DOUBLE_CUTS,DOUBLE_CUT,POSSIBLE_ERASURES.
+
+In schimb eu m-am concentrat pe functiile ERASE, POSSIBLE_DEITERATIONS SI DEITERATE.
+
+Iti multumesc pentru timpul acordat citirii acestui README.
+
+Iti urez o zi buna! :)
+
+
